@@ -16,7 +16,7 @@ describe "Stage" do
 
 	it "should not have the content ?? the custome one" do 
 		visit '/stage/home'		
-		expect(page).not_to have_title("! Home")
+		expect(page).not_to have_title("| Home")
 	end
 
 
@@ -30,7 +30,7 @@ describe "Stage" do
     end
 
 
-    it "should have the content 'Home' " do 
+    it "should have the content 'Help' " do 
     	visit '/stage/help'
     	expect(page).to have_title("Help ")
 	end
@@ -44,7 +44,7 @@ describe "Stage" do
    		expect(page).to have_content('Located here')
    	end
 
-   	it "should have the content 'Home' " do 
+   	it "should have the title 'contact us' " do 
     	visit '/stage/Contact_us'
     	expect(page).to have_title("Contact us")
 	end

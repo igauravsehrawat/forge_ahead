@@ -1,6 +1,9 @@
 ForgeAhead::Application.routes.draw do
-  get "stage/home"
-  get "stage/help"
+  get "users/new"
+match '/help' , to: 'stage#help', via: 'get'
+
+match '/signup', to: 'users#new', via:'get'
+  
   get "stage/about"
   get "static_pges/home"
   get "static_pges/help"
