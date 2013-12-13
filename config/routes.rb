@@ -5,9 +5,9 @@ match '/help' , to: 'stage#help', via: 'get'
 match '/signup', to: 'users#new', via:'get'
   
   get "stage/about"
-  get "static_pges/home"
-  get "static_pges/help"
-  get "static_pges/about"
+  get "stage/home"
+  
+  get "stage/about"
   get "stage/Contact_us"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
