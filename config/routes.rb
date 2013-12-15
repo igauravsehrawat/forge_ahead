@@ -1,4 +1,5 @@
 ForgeAhead::Application.routes.draw do
+  root 'stage#home'
   get "users/new"
 match '/help' , to: 'stage#help', via: 'get'
 

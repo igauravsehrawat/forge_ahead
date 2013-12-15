@@ -4,9 +4,9 @@ describe "Stage" do
 
   describe "Home page" do
 
-    it "should have the content 'Sample App'" do
+    it "should have the content 'Welcome home'" do
       visit '/stage/home'
-      expect(page).to have_content('Sample App')
+      expect(page).to have_content('Welcome')
     end
 
     it "should have the content 'Home' " do 
