@@ -4,11 +4,11 @@ match '/help' , to: 'stage#help', via: 'get'
 
 match '/signup', to: 'users#new', via:'get'
   
-  get "stage/about"
+  match '/home', to: 'stage#home' , via:  'get'
   get "stage/home"
   
-  get "stage/about"
-  get "stage/Contact_us"
+  match '/about', to: 'stage#about' , via:  'get'
+  match '/contact', to: 'stage#Contact_us' , via:  'get'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
