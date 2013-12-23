@@ -17,4 +17,7 @@ describe "UserPages" do
   	subject {@user}
   	it {should respond_to(:name)} #this means the User.new has the name field
   	it {should respond_to(:email)}#this means the User.new has the email field
+  end
+
 end
+
