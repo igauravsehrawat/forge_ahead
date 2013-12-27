@@ -1,16 +1,19 @@
 ForgeAhead::Application.routes.draw do
-  root 'stage#home'
-match '/', to: 'stage#home', via: 'get'
-  get "users/new"
-match '/help' , to: 'stage#help', via: 'get'
 
-match '/signup', to: 'users#new', via:'get'
+  root 'stage#home'
+  match '/', to: 'stage#home', via: 'get'
+  get "users/new"
+  match '/help' , to: 'stage#help', via: 'get' #this create a routed path as help_path
+
+  match '/signup', to: 'users#new', via:'get'
   
   match '/home', to: 'stage#home' , via:  'get'
   get "stage/home"
   
   match '/about', to: 'stage#about' , via:  'get'
   match '/contact', to: 'stage#Contact_us' , via:  'get'
+
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
