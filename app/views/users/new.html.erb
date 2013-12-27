@@ -1,9 +1,11 @@
 <% provide(:title, 'Sign up') %>
 <h1>Sign up</h1>
-<p>Wait while sign up form is being in factory</p>
+<!--<p>Wait while sign up form is being in factory</p>-->
 <div class="row">
 	<div class="span6 offset3">
 		<%= form_for(@user) do |f| %>
+			<%= render 'shared/error_messages' %>
+
 		<%= f.label :name %>
 		<%= f.text_field :name %>
 
