@@ -2,7 +2,7 @@
 
 /* universal */
 $grayMediumLight: #eaeaea;
-$grayLight: #999;
+
 $lightGray: #999;
 
 @mixin box_sizzing{
@@ -111,6 +111,54 @@ footer {
       margin-left: 10px;
     }
   }
+}
+/*right sidebar */
+aside {
+  section {
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:first-child {
+      border: 0;
+      padding-top: 0;
+    }
+    span {
+      display: block;
+      margin-bottom: 3px;
+      line-height: 1;
+    }
+    h1 {
+      font-size: 1.4em;
+      text-align: left;
+      letter-spacing: -1px;
+      margin-bottom: 3px;
+      margin-top: 0px;
+    }
+  }
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+
+/* forms */
+@mixin box_sizzing{
+  -moz-box-sizzing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  }
+
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  @include box_sizzing; /* an error occured because i was using it wrong way ..syntax in new.html.erb wasn't complete */
+}
+
+input {
+  height: auto !important;
 }
 
 /*
