@@ -14,6 +14,13 @@ ForgeAhead::Application.routes.draw do
   match '/contact', to: 'stage#Contact_us' , via:  'get'
 
   resources :users
+  #session resources
+  resources :sessions, only: [:new, :create, :destroy]
+
+  match '/signin', to: 'sessions#new', via: 'get'
+  match '/signout', to: 'session#destroy', via: 'delete'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
