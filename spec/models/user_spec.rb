@@ -1,34 +1,34 @@
 require 'spec_helper'
 
-describe User do
+# describe User do
 
-  before do
-    @user = User.new(name: "Example User", email: "user@example.com")
-    #@user.save #this wasn't used but I did it intentionally to know that actually the test is done on user before saving it into the file.
-  end
+#   before do
+#     @user = User.new(name: "Example User", email: "user@example.com")
+#     #@user.save #this wasn't used but I did it intentionally to know that actually the test is done on user before saving it into the file.
+#   end
 
-  subject { @user }
+#   subject { @user }
 
-  it { should respond_to(:name) }
-  it { should respond_to(:email) }
+#   it { should respond_to(:name) }
+#   it { should respond_to(:email) }
 
-  it { should be_valid }
+#   it { should be_valid }
 
-  describe "when name is not present" do
-    before { @user.name = " " }
-      it { should_not be_valid }
-  end
+#   describe "when name is not present" do
+#     before { @user.name = " " }
+#       it { should_not be_valid }
+#   end
 
-  describe "when email address is already taken" do
-    before do
-      user_with_same_email = @user.dup
-      user_with_same_email.save
-    end
+#   describe "when email address is already taken" do
+#     before do
+#       user_with_same_email = @user.dup
+#       user_with_same_email.save
+#     end
 
-    it { should_not be_valid }
-  end
+#     it { should_not be_valid }
+#   end
   
-end
+# end
 
 #user_spec.rb
 
@@ -49,13 +49,15 @@ describe User do
   it{should respond_to(:password_digest)}
   it{ should respond_to(:password)}
   it{ should respond_to(:password_confirmation)}
+  it{ should respond_to (:remember_token)}
+  it{ should respond_to (:authenticate)}
 
   it{should be_valid}
 
   describe "when password is not present" do
 
     before do
-      @user = User.new(name: "Om Nom",email: "omnom@gmail.com",password:"",password_confirmation:"")
+      @user = User.new(name: "Atri Sharma",email: "atri.jiit@gmail.com",password:"",password_confirmation:"")
     end
       it{should_not be_valid}
   end
@@ -86,6 +88,12 @@ describe User do
       specify { expect(user_for_invalid_password.to be_false)}
     end
   end
+
+  describe "remember_token" do
+    before {@user.save}
+    its(:remember_token) {should_not be_blank}
+  end
+
 
 
 
