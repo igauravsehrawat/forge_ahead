@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
   	#accessing the field by : after the variable
 
     def User.new_remember_token
-      Secure.urlsafe_base64
+      SecureRandom.urlsafe_base64 #it's not just Secure the method is SecureRandoom
     end
 
     def User.encrypt(token)
@@ -26,8 +26,8 @@ class User < ActiveRecord::Base
 
     private
 
-    def create_remember_token
-      self.remember_token = User.encrypt(User.new_remember_token) #self saves the remember token
-    end
+      def create_remember_token
+        self.remember_token = User.encrypt(User.new_remember_token) #self saves the remember token
+      end
 
 end

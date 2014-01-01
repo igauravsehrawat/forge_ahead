@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
 	def create
 		user = User.find_by(email: params[:session][:email])      #capital User is the database table
-		if user && user.authenticate(params([:sessions][:password])) #remember we are handling the parameter
+		if user && user.authenticate(params[:session][:password]) #remember we are handling the parameter #it's not sessionS just session
 			sign_in user
 			redirect_to user
 		else
