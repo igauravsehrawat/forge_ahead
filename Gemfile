@@ -22,6 +22,10 @@ group :test do
 	gem 'capybara', '2.1.0'
 	gem 'factory_girl_rails', '4.2.1'
 
+	#custom test with cucumbergit 
+	gem 'cucumber-rails', '1.4.0', :require => false
+	gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+
 end
 
 

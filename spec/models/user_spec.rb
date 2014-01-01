@@ -79,6 +79,7 @@ describe User do
 
     describe "with valid password" do
       it {should eq found_user.authenticate(@user.password)}
+
     end
 
     describe "with invalid password" do

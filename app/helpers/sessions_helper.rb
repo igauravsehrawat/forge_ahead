@@ -24,6 +24,16 @@ module SessionsHelper
 	def signed_in?
 		!current_user.nil?
 	end
+	#HELPER are used to define function in every controller and view..
+	#it can be called by any view and any controlller ..naming is way to distinguish the
+	#and put tags for easy identification
 
+	def sign_out
+		current_user.update_attribute(:remember_token, User.encrypt(user.new_remember_token))
+
+		cookies.delete(:remember_token)  #not a hash value
+		self.current_user = nil
+	end
+	
 
 end
