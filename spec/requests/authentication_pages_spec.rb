@@ -23,11 +23,16 @@ describe "signin" do
 	describe "with valid information" do 
 		let(:user) {FactoryGirl.create(:user)}
 
-		before do #do -end for multi line code
-			fill_in "Email", with: user.email.upcase
-			fill_in "Password", with: user.password
-			click_button "Sign in"
-		end
+		#comment
+		#for the valid_signin(user))using utilites.rb tweaked for less lines of code
+
+
+		before { valid_signin(user)} 
+		# before do #do -end for multi line code
+		# 	fill_in "Email", with: user.email.upcase
+		# 	fill_in "Password", with: user.password
+		# 	click_button "Sign in"
+		# end
 
 		it {should have_title(user.name)}
 		it {should have_link('Profile', href:user_path(user))}
