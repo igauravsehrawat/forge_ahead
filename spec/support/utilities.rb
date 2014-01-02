@@ -18,6 +18,7 @@ include ApplicationHelper
 			fill_in "Password", with: user.password
 			click_button "Sign in"
 		end
+	end
 		
 
 	RSpec::Matchers.define :have_error_message do |message|

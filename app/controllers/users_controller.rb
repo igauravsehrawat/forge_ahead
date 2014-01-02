@@ -7,6 +7,16 @@ class UsersController < ApplicationController
   	@user= User.find(params[:id])
   end
 
+#don't forget the rails architecture is built on the CRUD
+#CRUD the fundamental part of the REST architecture
+#either there will be create  or replace or update or delete requests
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+
+
   def create
   	@user = User.new(user_params)
   	if @user.save
