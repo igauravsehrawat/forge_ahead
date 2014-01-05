@@ -96,6 +96,12 @@ describe "Authentication" do
 					before { patch user_path{user}} #getting error of id missing ..ofcourse since it is not logged in
 					specify { expect(response).to redirect_to(root_url)}
 				end
+
+				describe "visiting the user index" do
+					before { visit users_path }
+					it { should have_title('Sign in')}
+				end
+				
 			end
 		end
 
