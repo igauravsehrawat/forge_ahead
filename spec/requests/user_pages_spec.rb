@@ -5,6 +5,9 @@ describe "UserPages" do
   subject {page}
  # before { visit signup_path }  random modification doesn't work even in short races
 
+    
+
+
    describe "index" do
     before do
       sign_in FactoryGirl.create(:user)
@@ -27,6 +30,27 @@ describe "UserPages" do
         end
       end
     end
+
+    describe "delete links" do
+      it { should_not have_link('delete') }
+      describe "as an admin user" do
+        let(:admin) { Factory.create(:admin) }
+        before do
+          sign_in admin
+          visit users_path
+        end
+
+        it { should have_link('delete' , href: userpath(User.first)) }
+        it "should be able to delete another user" do
+
+          expect do
+            click('delete', match: :first)
+          end.to change(User, :count).by(-1)
+        end
+        it { should_not have_link('delete', href: user_path(admin)) }
+      end
+    end
+
   end
   
 
@@ -41,13 +65,30 @@ describe "UserPages" do
 
 
   describe User do
-  	before {@user = User.new(name: "Ubuntu pc", email:"ubuntu@canonical.com")}
+  	before {@user = User.new(name: "Ubuntu pc", email:"ubuntu@canonical.com", password: "falcon123", password_confirmation: "falcon123")}
 
   	subject {@user}
   	it {should respond_to(:name)} #this means the User.new has the name field
   	it {should respond_to(:email)}#this means the User.new has the email field
+
+
+
+  it { should respond_to(:authenticate) }
+    it { should respond_to(:admin) }
+
+    it { should be_valid }
+    it { should_not be_admin }
+
+    describe "wit hadmin attribute set to 'true' " do 
+      before do
+        @user.save!
+        @user.toggle!(:admin)
+      end
+     it { should be_admin}
+    end
   end
 
+  #look out for scopes
   describe "profile page" do
     let(:user) {FactoryGirl.create(:user)}
 
