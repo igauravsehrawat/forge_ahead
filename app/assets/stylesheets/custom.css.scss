@@ -4,6 +4,7 @@
 $grayMediumLight: #eaeaea;
 
 $lightGray: #999;
+$grayLighter: #ababab;
 
 @mixin box_sizzing{
   -moz-box-sizzing: border-box;
@@ -177,6 +178,19 @@ input {
   @extend .error;
 }
 
+
+.users{
+  list-style: none;
+  margin: 0;
+  li{
+  overflow: auto;
+  padding: 10px 0;
+  border-top: 1px solid $grayLighter;
+  &:last-child{
+    border-bottom: 1px solid $grayLighter;
+  }
+  }
+}
 /*
 making the sass work above
 */
