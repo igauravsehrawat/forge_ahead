@@ -1,0 +1,40 @@
+..FFFF
+
+Failures:
+
+  1) Stage Help page should have the content 'Help'
+     Failure/Error: visit '/stage/help'
+     ActionController::RoutingError:
+       No route matches [GET] "/stage/help"
+     # ./spec/requests/stages_spec.rb:30:in `block (3 levels) in <top (required)>'
+
+  2) Stage Help page should have the content 'Help' 
+     Failure/Error: visit '/stage/help'
+     ActionController::RoutingError:
+       No route matches [GET] "/stage/help"
+     # ./spec/requests/stages_spec.rb:36:in `block (3 levels) in <top (required)>'
+
+  3) Stage Contact us should have the location 'Located here' 
+     Failure/Error: visit '/stage/Contact_us'
+     ActionController::RoutingError:
+       No route matches [GET] "/stage/Contact_us"
+     # ./spec/requests/stages_spec.rb:45:in `block (3 levels) in <top (required)>'
+
+  4) Stage Contact us should have the title 'contact us' 
+     Failure/Error: visit '/stage/Contact_us'
+     ActionController::RoutingError:
+       No route matches [GET] "/stage/Contact_us"
+     # ./spec/requests/stages_spec.rb:50:in `block (3 levels) in <top (required)>'
+
+Finished in 0.27068 seconds
+6 examples, 4 failures
+
+Failed examples:
+
+rspec ./spec/requests/stages_spec.rb:29 # Stage Help page should have the content 'Help'
+rspec ./spec/requests/stages_spec.rb:35 # Stage Help page should have the content 'Help' 
+rspec ./spec/requests/stages_spec.rb:44 # Stage Contact us should have the location 'Located here' 
+rspec ./spec/requests/stages_spec.rb:49 # Stage Contact us should have the title 'contact us' 
+
+Randomized with seed 11459
+

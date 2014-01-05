@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 		user = User.find_by(email: params[:session][:email])      #capital User is the database table
 		if user && user.authenticate(params[:session][:password]) #remember we are handling the parameter #it's not sessionS just session
 			sign_in user
-			redirect_to user
+			redirect_back_or user #see it has been changed for friendly forwarding
 		else
 		flash.now[:error]="You have entered invalid credentials either email or password !!" #used instead of flash , as request is not send for the render page of 'new' unlike redirect_to
 		render 'new'

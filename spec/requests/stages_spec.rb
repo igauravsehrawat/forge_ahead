@@ -5,12 +5,12 @@ describe "Stage" do
   describe "Home page" do
 
     it "should have the content 'Welcome home'" do
-      visit '/stage/home'
+      visit '/home'
       expect(page).to have_content('Welcome')
     end
 
     it "should have the content 'Home' " do 
-    	visit '/stage/home'
+    	visit '/home'
     	expect(page).to have_title("Home")
 	end
 
@@ -27,13 +27,13 @@ describe "Stage" do
   describe "Help page" do
 
     it "should have the content 'Help'" do
-      visit '/stage/help'
+      visit '/help'
       expect(page).to have_content('Help')
     end
 
 
     it "should have the content 'Help' " do 
-    	visit '/stage/help'
+    	visit '/help'
     	expect(page).to have_title("Help ")
 	end
 
@@ -42,12 +42,12 @@ describe "Stage" do
 
    describe "Contact us" do 
    	it "should have the location 'Located here' " do
-   		visit '/stage/Contact_us'
+   		visit '/contact'
    		expect(page).to have_content('Located here')
    	end
 
    	it "should have the title 'contact us' " do 
-    	visit '/stage/Contact_us'
+    	visit '/contact'
     	expect(page).to have_title("Contact us")
 	end
    end

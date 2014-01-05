@@ -3,6 +3,7 @@ require 'spec_helper'
 describe "UserPages" do
   
   subject {page}
+ # before { visit signup_path }  random modification doesn't work even in short races
   describe describe "signup page" do
     before { visit signup_path }
 
@@ -29,6 +30,14 @@ describe "UserPages" do
   end
 
   describe "signup page" do
+    before { visit signup_path }
+
+    it { should have_content('Sign up') }
+    it { should have_title(full_title('Sign up')) }
+  end
+
+
+  describe "signup" do
 
   before {visit signup_path}  
   let(:submit) {"Create my account"}
@@ -38,18 +47,22 @@ describe "UserPages" do
       expect { click_button submit}.not_to change(User,:count) #db and field
     end
   end
-end
+
+
+
 
   describe "with valid information" do
-    before do 
+
+    before do
+      #visit signup_path 
       fill_in "Name" , with: "Ashish Dubey"
       fill_in "Email", with: "ashishdubey91@gmail.com"
-      fill_in "password", with: "mozillaintern"
+      fill_in "Password", with: "mozillaintern"
       fill_in "Confirmation", with: "mozillaintern"
     end
 
       it "Should create a user" do
-        expect {click_button submit}.to change(User,:count).by(1)
+        expect { click_button submit}.to change(User,:count).by(1)
       end
 
       describe "after saving the user" do
@@ -62,8 +75,11 @@ end
       end
 
   end
+end
+#common mistakes:: 
 
 
+      #edit section 
       describe "edit" do
         let(:user) {FactoryGirl.create(:user)}
         before do
@@ -73,12 +89,12 @@ end
 
         describe "page" do
           it {should have_content("Update your profile")}
-          it { shoudl have_title("Edit user")}
+          it { should have_title("Edit User")}
           it { should have_link('change', href: 'http://gravatar.com/emails')}
         end
 
         describe "with invalid information" do
-          before{ click_button "Save changes"}
+          before{ click_button "Save Changes"}
           it {should have_content('error')}
         end
 
@@ -91,7 +107,7 @@ end
             fill_in "Email", with: new_email
             fill_in "Password", with: user.password
             fill_in "Confirm Password", with: user.password
-            click_button "Save changes"
+            click_button "Save Changes"
           end
 
           it {should have_title(new_name) }
