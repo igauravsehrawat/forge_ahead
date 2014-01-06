@@ -52,4 +52,15 @@ describe "Stage" do
 	end
    end
 
+   describe "for signed-in users" do
+    let(:user) { FactoryGirl.create(:user) }
+    before do
+      FactoryGirl.create(:micropost, user: user, content: "LOrem ipsum")
+      FactoryGirl.create(:micropost, user: user, content: "Dollar it is what i need but bitcoin definitely")
+      sign_in user
+      visit root_path
+    end
+
+  ##continue from 10.37
+
 end

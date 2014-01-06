@@ -97,6 +97,9 @@ it { should respond_to(:microposts) } #that means it should be present
     before {@user.save}
     its(:remember_token) {should_not be_blank}
   end
+ it { should respond_to(:microposts) }
+ it { should respond_to(:feed) }
+
 
 
 ##micropost association
@@ -110,11 +113,23 @@ describe "micropost associations" do
     FactoryGirl.create(:micropost, user: @user, created_at: 1.hour.ago )
   end
 
+
+
   it "should have the right microposts in the right order " do
     expect(@user.microposts.to_a).to eq [newer_micropost,older_micropost]
   end
 
 
+  describe "status" do
+    let(:unfollowed_post) do
+      FactoryGirl.create(:micropost, user: FactoryGirl.create(:user))
+    end
+
+    its(:feed) { should include(newer_micropost)}
+    its(:feed) { should include(older_micropost)}
+    its(:feed) { should_not include(unfollowed_post)}
+  end
+  
   it " should destroy associated microposts " do
 
     microposts = @user.microposts.to_a
@@ -127,6 +142,7 @@ describe "micropost associations" do
 
 
 end
+
 
 ##move fast
 
