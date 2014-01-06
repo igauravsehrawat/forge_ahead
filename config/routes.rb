@@ -1,6 +1,8 @@
 ForgeAhead::Application.routes.draw do
 
-  root 'stage#home'
+
+  #this is too much messy
+  root to: 'stage#home'
   match '/', to: 'stage#home', via: 'get'
   get "users/new"
   match '/help' , to: 'stage#help', via: 'get' #this create a routed path as help_path
@@ -13,12 +15,20 @@ ForgeAhead::Application.routes.draw do
   match '/about', to: 'stage#about' , via:  'get'
   match '/contact', to: 'stage#Contact_us' , via:  'get'
 
+
+
+  match '/signin', to: 'sessions#new', via: 'get'
+  match '/signout', to: 'session#destroy', via: 'delete'
+
+  ##clean urls
   resources :users
   #session resources
   resources :sessions, only: [:new, :create, :destroy]
 
-  match '/signin', to: 'sessions#new', via: 'get'
-  match '/signout', to: 'session#destroy', via: 'delete'
+  resources :microposts , only: [:create, :destroy]
+
+
+ 
 
 
   # The priority is based upon order of creation: first created -> highest priority.
