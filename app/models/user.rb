@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 	before_save { self.email = email.downcase }
+  #micropost validation
+  has_many :microposts , dependent: :destroy
 	#name validation
 
   #session token 

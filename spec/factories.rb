@@ -9,8 +9,17 @@ FactoryGirl.define do
 		factory :admin do
 			admin true
 		end
-		
 	end
+
+	
+		factory :micropost do
+			content "Lorem ..keep coding dude"
+			user
+		end
+
+
+		
+	
 
 	factory :user_2 do
 		name "Mark Zuckerberg"
