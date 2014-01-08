@@ -34,6 +34,21 @@ describe "MicropostPages" do
   end
   
 
+  describe "delete users microposts" do
+
+      before { FactoryGirl.create(:micropost, user: user, content: "lol ipsum")}
+
+     describe "as correct user" do
+        before { visit root_path} #currently i am at this page
+
+      it "should delete a micropost" do
+        expect( click_link "delete").to change(Micropost, :count).by(-1)
+      end
+    end
+  end
+
+
+
 
 
 

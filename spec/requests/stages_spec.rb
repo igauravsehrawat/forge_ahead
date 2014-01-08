@@ -12,17 +12,17 @@ describe "Stage" do
     it "should have the content 'Home' " do 
     	visit '/home'
     	expect(page).to have_title("Home")
-	end
+	 end
+  end
 
-
-#CAUTIONS:: do comment out the failing test after validating it. 
+  #CAUTIONS:: do comment out the failing test after validating it. 
 	#it "should not have the content ?? the custome one" do 
 	#	visit '/stage/home'		
 	#	expect(page).not_to have_title("| Home")
 	# end*/
 
 
-  end
+
 
   describe "Help page" do
 
@@ -35,12 +35,12 @@ describe "Stage" do
     it "should have the content 'Help' " do 
     	visit '/help'
     	expect(page).to have_title("Help ")
-	end
+	 end
 
   end
 
 
-   describe "Contact us" do 
+  describe "Contact us" do 
    	it "should have the location 'Located here' " do
    		visit '/contact'
    		expect(page).to have_content('Located here')
@@ -49,10 +49,10 @@ describe "Stage" do
    	it "should have the title 'contact us' " do 
     	visit '/contact'
     	expect(page).to have_title("Contact us")
-	end
-   end
+	 end
+  end
 
-   describe "for signed-in users" do
+  describe "for signed-in users" do
     let(:user) { FactoryGirl.create(:user) }
     before do
       FactoryGirl.create(:micropost, user: user, content: "LOrem ipsum")
@@ -61,11 +61,11 @@ describe "Stage" do
       visit root_path
     end
 
-  ##continue from 10.37
+    ##continue from 10.37
     it "should render the user's feed " do
       user.feed.each do |item|
         expect(page).to have_selector("li##{item.id}", text: item.content)
       end
     end
-
+  end
 end
