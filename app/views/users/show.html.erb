@@ -7,8 +7,13 @@
 			<%= @user.name %>, <%= @user.email %>
 		</h1>
 	</section>
-</aside>
+	<section>
+		<%= render 'shared/stats' %>
+	</section>
 
+</aside>
+	<div class="span8 ">
+		<%= render 'follow_form' if signed_in? %>
 	<div class="span8" >
 
 		<% if @user.microposts.any? %>
