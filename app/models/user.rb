@@ -3,7 +3,12 @@ class User < ActiveRecord::Base
   #micropost validation
   has_many :microposts , dependent: :destroy
 	#name validation
+    ##these are the following user validations##
+    has_many :microposts, dependent: :destroy
+    has_many :relationships, foreign_key: "followed_id" , dependent: :destroy
+    has_many :followed_users, through: :relationships, source: :followed
 
+   ##end ##
   #session token 
   before_create :create_remember_token #namespace variable accessed using :
 
@@ -30,6 +35,18 @@ class User < ActiveRecord::Base
       Micropost.where("user_id = ?", id)
     end
     
+    def following?(other_user)
+      relationships.find_by(followed_id: other_user.id)
+    end
+
+    def follow!(other_user)
+      relationships.create!(followed_id: other_user.id)
+    end
+
+      def unfollow!(other_user)
+        relationships.find_by(followed_id: other_user.id).destroy!
+      end
+      
     private
 
       def create_remember_token
