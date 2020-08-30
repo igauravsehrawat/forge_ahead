@@ -16,7 +16,7 @@ gem 'newrelic_rpm'
 group :development , :test do
 	gem 'sqlite3' , '1.3.8'
 	gem 'rspec-rails', '2.13.1'
-	gem 'guard-rspec' , '2.5.0'
+	gem 'guard-rspec' , '3.1.0'
 	#this is the spork part
 	gem 'spork-rails', '4.0.0'
   gem 'guard-spork', '1.5.0'
