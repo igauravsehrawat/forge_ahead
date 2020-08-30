@@ -27,7 +27,7 @@ end
 group :test do 
 	gem 'selenium-webdriver' , '2.35.1'
 	gem 'capybara', '2.1.0'
-	gem 'factory_girl_rails', '4.2.1'
+	gem 'factory_girl_rails', '4.9.0'
 
 	#custom test with cucumbergit 
 	gem 'cucumber-rails', '1.4.0', :require => false
