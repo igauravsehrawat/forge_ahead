@@ -7,7 +7,7 @@ gem 'bcrypt-ruby' , '3.1.2'
 #fake usernames
 gem 'faker', '1.1.2'
 #pagination
-gem 'will_paginate', '3.0.5'
+gem 'will_paginate', '3.3.0'
 #bootstrapping the paginate section
 gem 'bootstrap-will_paginate', '0.0.9'
 #new relic
